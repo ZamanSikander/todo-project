@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-</style>
+    <script
+      src="https://kit.fontawesome.com/6a633e910e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body>
+  <body>
+    <h1 class="main-heading">Powerd by <a href="https://szswebdev.netlify.app" class="main-link" target="_blank">SZSwebdev</a>
+    </h1>
     <main class="main-todo">
-        <h2>My Todo List</h2>
-        <label for="todos">Enter Tasks:</label>
-        <input type="text" name="todos" id="todos">
-        <button type="button" id="add-btn" onclick="addTasks()">Add Task</button>
-        <button type="button" id="remove-btn" onclick="removeAllTasks()">Clear All Tasks</button>
-        <ul id="ul1"></ul>
+      <h2>My Todo HQ</h2>
+      <label for="todos">Enter Tasks:</label>
+      <input type="text" name="todos" id="todos" />
+      <button type="button" id="add-btn" onclick="addTasks()">Add Task</button>
+      <button type="button" id="remove-btn" onclick="removeAllTasks()">
+        Clear All Tasks
+      </button>
+      <ul id="ul1"></ul>
     </main>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

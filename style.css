@@ -1,0 +1,114 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #1f2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+    min-height: 100vh;
+    /* border: 9px solid black; */
+  }
+  .main-heading{
+    color: #e5e7eb;
+  }
+  .main-link{
+    color: #e5e7eb;
+  }
+  .main-todo {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    text-align: center;
+  }
+
+  .main-todo h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .main-todo label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .main-todo input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .main-todo button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .main-todo button:hover {
+    background-color: #3700b3;
+  }
+
+  .main-todo ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    /* display: flex; */
+    /* border: 2px solid red; */
+  }
+
+  .main-todo ul li {
+    background-color: #f4f4f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  span > i {
+    margin: 4px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-todo {
+      width: 70%;
+    }
+    .main-todo button {
+      padding: 8px 18px;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .main-todo {
+      width: auto;
+    }
+    .main-todo button {
+      padding: 7px 16px;
+      font-size: 13px;
+    }
+    .main-todo ul li {
+      font-size: 12px;
+    }
+    .main-heading{
+        font-size: 18px;
+      }
+  }

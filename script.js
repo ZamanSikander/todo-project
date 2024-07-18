@@ -1,62 +1,66 @@
-document.addEventListener('DOMContentLoaded', loadTasks);
+document.addEventListener("DOMContentLoaded", loadTasks);
 
-        function loadTasks() {
-            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-            tasks.forEach(task => {
-                addTaskToList(task.text);
-            });
-        }
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach((task) => {
+    addTaskToList(task.text);
+  });
+}
 
-        function addTaskToList(taskText) {
-            const taskList = document.createElement('li');
-            const deleteButton = document.createElement('button');
-            const editButton = document.createElement('button');
+function addTaskToList(taskText) {
+  const allTasksList = document.getElementById("ul1");
+  const taskList = document.createElement("li");
+  const deleteButton = document.createElement("i");
+  const editButton = document.createElement("i");
 
-            editButton.textContent = 'Edit';
-            deleteButton.textContent = 'Delete';
+  deleteButton.className = "fas fa-trash-alt";
+  editButton.className = "fas fa-edit";
 
-            taskList.textContent = `${taskText}`;
-            taskList.appendChild(deleteButton);
-            taskList.appendChild(editButton);
+  const span = document.createElement("span");
+  span.appendChild(deleteButton);
+  span.appendChild(editButton);
 
-            document.getElementById('ul1').appendChild(taskList);
+  taskList.textContent = `${taskText}`;
+  taskList.appendChild(span);
 
-            deleteButton.addEventListener('click', function () {
-                taskList.remove();
-                updateLocalStorage();
-            });
+  document.getElementById("ul1").appendChild(taskList);
 
-            editButton.addEventListener('click', function () {
-                const newTask = prompt('Edit your task:', taskText);
-                if (newTask) {
-                    taskList.childNodes[0].nodeValue = newTask;
-                    updateLocalStorage();
-                }
-            });
+  deleteButton.addEventListener("click", function () {
+    taskList.remove();
+    updateLocalStorage();
+  });
 
-            updateLocalStorage();
-        }
+  editButton.addEventListener("click", function () {
+    const newTask = prompt("Edit your task:", taskText);
+    if (newTask) {
+      taskList.childNodes[0].nodeValue = newTask;
+      updateLocalStorage();
+    }
+  });
 
-        function addTasks() {
-            const taskText = document.getElementById('todos').value;
-            if (taskText) {
-                addTaskToList(taskText);
-                document.getElementById('todos').value = '';
-                updateLocalStorage();
-            } else {
-                alert('Enter a task to add');
-            }
-        }
+  updateLocalStorage();
+}
 
-        function removeAllTasks() {
-            document.getElementById('ul1').innerHTML = '';
-            localStorage.removeItem('tasks');
-        }
+function addTasks() {
+  const taskText = document.getElementById("todos").value;
+  if (taskText) {
+    addTaskToList(taskText);
+    document.getElementById("todos").value = "";
+    updateLocalStorage();
+  } else {
+    alert("Enter a task to add");
+  }
+}
 
-        function updateLocalStorage() {
-            const tasks = [];
-            document.querySelectorAll('#ul1 li').forEach(task => {
-                tasks.push({ text: task.childNodes[0].nodeValue });
-            });
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-        }
+function removeAllTasks() {
+  document.getElementById("ul1").innerHTML = "";
+  localStorage.removeItem("tasks");
+}
+
+function updateLocalStorage() {
+  const tasks = [];
+  document.querySelectorAll("#ul1 li").forEach((task) => {
+    tasks.push({ text: task.childNodes[0].nodeValue });
+  });
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
